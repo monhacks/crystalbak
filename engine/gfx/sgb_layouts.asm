@@ -519,79 +519,86 @@ endr
 	ld de, BlkPacket_9a86
 	ret
 
-.GetMapPalsIndex:
-	ld a, [wMapGroup]
-	cp 24 ; New Bark
-	jr z, .newbark
-	cp 26 ; Cherrygrove
-	jr z, .cherrygrove
-	ld a, PREDEFPAL_CINNABAR ; else
-	ret
-
-.newbark
-	ld a, [wMapNumber]
-	cp MAP_ELMS_LAB
-	jr z, .elmslab
-	cp MAP_ROUTE_29
-	jr z, .route29
-	ld a, PREDEFPAL_VERMILION ; else
-	ret
-	
-.elmslab
-	ld a, PREDEFPAL_FUCHSIA
-	ret
-	
-.route29
-	ld a, PREDEFPAL_SILVER_CAVE
-	ret
-	
-.cherrygrove
-	ld a, PREDEFPAL_VIRIDIAN
-	ret
-
-
 ; .GetMapPalsIndex:
+	; ld a, [wMapGroup]
+	; cp 24 ; New Bark
+	; jr z, .newbark
+	; cp 26 ; Cherrygrove
+	; jr z, .cherrygrove
+	; ld a, PREDEFPAL_CINNABAR ; else
+	; ret
+
+; .newbark
+	; ld a, [wMapNumber]
+	; cp MAP_ELMS_LAB
+	; jr z, .elmslab
+	; cp MAP_ROUTE_29
+	; jr z, .route29
+	; ld a, PREDEFPAL_VERMILION ; else
+	; ret
+	
+; .elmslab
+	; ld a, PREDEFPAL_FUCHSIA
+	; ret
+	
+; .route29
+	; ld a, PREDEFPAL_SILVER_CAVE
+	; ret
+	
+; .cherrygrove
+	; ld a, PREDEFPAL_VIRIDIAN
+	; ret
+
+
 	; ld a, [wTimeOfDayPal]
 	; cp NITE_F
 	; jr c, .morn_day
 	; ld a, PREDEFPAL_NITE
 	; ret
-
+	
 ; .morn_day
-	; ld a, [wEnvironment]
-	; cp ROUTE
-	; jr z, .route
-	; cp CAVE
-	; jr z, .cave
-	; cp DUNGEON
-	; jr z, .cave
-	; cp ENVIRONMENT_5
-	; jr z, .env5
-	; cp GATE
-	; jr z, .gate
-	; ld a, [wMapGroup]
-	; ld e, a
-	; ld d, 0
-	; ld hl, MapGroupRoofSGBPalInds
-	; add hl, de
-	; ld a, [hl]
-	; ret
+.GetMapPalsIndex:
+	ld a, [wMapNumber] ; Map check should have priority over Environment or MapGroup
+	cp MAP_ELMS_LAB
+	jr z, .elmslab
+	ld a, [wEnvironment] ; Otherwise you can't specify a palette for a Route/Cave/House inside city, etc
+	cp ROUTE
+	jr z, .route
+	cp CAVE
+	jr z, .cave
+	cp DUNGEON
+	jr z, .cave
+	cp ENVIRONMENT_5
+	jr z, .env5
+	cp GATE
+	jr z, .gate
+	ld a, [wMapGroup]
+	ld e, a
+	ld d, 0
+	ld hl, MapGroupRoofSGBPalInds
+	add hl, de
+	ld a, [hl]
+	ret
 
-; .route
-	; ld a, PREDEFPAL_00
-	; ret
+.elmslab
+	ld a, PREDEFPAL_LAKE_OF_RAGE
+	ret
 
-; .cave
-	; ld a, PREDEFPAL_DUNGEONS
-	; ret
+.route
+	ld a, PREDEFPAL_00
+	ret
 
-; .env5
-	; ld a, PREDEFPAL_VERMILION
-	; ret
+.cave
+	ld a, PREDEFPAL_DUNGEONS
+	ret
 
-; .gate
-	; ld a, PREDEFPAL_PEWTER
-	; ret
+.env5
+	ld a, PREDEFPAL_VERMILION
+	ret
+
+ .gate
+	ld a, PREDEFPAL_PEWTER
+	ret
 
 INCLUDE "data/maps/sgb_roof_pal_inds.asm"
 
