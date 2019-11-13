@@ -876,58 +876,6 @@ _CGB_MapPals:
 	call LoadHLPaletteIntoDE
 	jr .bg_done
 
-; .LoadHLBGPaletteIntoDE:
-	; ld hl, PalPacket_Empty
-	; ;ld de, wPalPacket
-	; ld bc, $10
-	; call CopyData
-	; ld a, [wCurMapTileset]
-	; cp TILESET_JOHTO
-	; jr z, .PokemonTowerOrAgatha
-	; cp TILESET_PLAYERS_ROOM
-	; jr z, .caveOrBruno
-	; ld a, [wCurMap]
-	; cp TILESET_LAB
-	; jr c, .townOrRoute
-	; cp TILESET_MART
-	; jr c, .normalDungeonOrBuilding
-	; cp TILESET_FACILITY 
-	; jr c, .caveOrBruno
-	; cp TILESET_HOUSE  
-	; jr z, .Lorelei
-	; cp TILESET_CAVE
-	; jr z, .caveOrBruno
-	; cp TILESET_RUINS_OF_ALPH
-	; jr z, .trade_center_colosseum
-	; cp TILESET_RADIO_TOWER
-	; jr z, .trade_center_colosseum
-; .normalDungeonOrBuilding
-	; ld a, [wLastMap] ; town or route that current dungeon or building is located
-; .townOrRoute
-	; cp PlayersHouse1F + 1
-	; jr c, .town
-	; ld a, PAL_ROUTE - 1
-; .town
-	; inc a ; a town's palette ID is its map ID + 1
-	; ;ld hl, wPalPacket + 1
-	; ld [hld], a
-	; ;ld de, BlkPacket_WholeScreen
-	; ld a, PAL_CYANMON
-	; ;ld [wDefaultPaletteCommand], a
-	; ret
-; .PokemonTowerOrAgatha
-	; ld a, PAL_GREYMON - 1
-	; jr .town
-; .caveOrBruno
-	; ld a, PAL_CAVE - 1
-	; jr .town
-; .Lorelei
-	; xor a
-	; jr .town
-; .trade_center_colosseum
-	; ld a, PAL_GREYMON - 1
-	; jr .town
-
 .LoadHLOBPaletteIntoDE:
 ; shades 0, 1, 2, 3 -> 0, 0, 1, 3
 	push hl
