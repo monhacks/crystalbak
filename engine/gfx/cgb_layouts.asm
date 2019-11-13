@@ -1,3 +1,304 @@
+SET_PAL_BATTLE_BLACK         EQU $00
+SET_PAL_BATTLE               EQU $01
+SET_PAL_TOWN_MAP             EQU $02
+SET_PAL_STATUS_SCREEN        EQU $03
+SET_PAL_POKEDEX              EQU $04
+SET_PAL_SLOTS                EQU $05
+SET_PAL_TITLE_SCREEN         EQU $06
+SET_PAL_NIDORINO_INTRO       EQU $07
+SET_PAL_GENERIC              EQU $08
+SET_PAL_OVERWORLD            EQU $09
+SET_PAL_PARTY_MENU           EQU $0A
+SET_PAL_POKEMON_WHOLE_SCREEN EQU $0B
+SET_PAL_GAME_FREAK_INTRO     EQU $0C
+SET_PAL_TRAINER_CARD         EQU $0D
+UPDATE_PARTY_MENU_BLK_PACKET EQU $FC
+
+; super game boy palettes
+const_value = 0
+
+	const PAL_ROUTE     ; $00
+	const PAL_PALLET    ; $01
+	const PAL_VIRIDIAN  ; $02
+	const PAL_PEWTER    ; $03
+	const PAL_CERULEAN  ; $04
+	const PAL_LAVENDER  ; $05
+	const PAL_VERMILION ; $06
+	const PAL_CELADON   ; $07
+	const PAL_FUCHSIA   ; $08
+	const PAL_CINNABAR  ; $09
+	const PAL_INDIGO    ; $0A
+	const PAL_SAFFRON   ; $0B
+	const PAL_TOWNMAP   ; $0C
+	const PAL_LOGO1     ; $0D
+	const PAL_LOGO2     ; $0E
+	const PAL_0F        ; $0F
+	const PAL_MEWMON    ; $10
+	const PAL_BLUEMON   ; $11
+	const PAL_REDMON    ; $12
+	const PAL_CYANMON   ; $13
+	const PAL_PURPLEMON ; $14
+	const PAL_BROWNMON  ; $15
+	const PAL_GREENMON  ; $16
+	const PAL_PINKMON   ; $17
+	const PAL_YELLOWMON ; $18
+	const PAL_GREYMON   ; $19
+	const PAL_SLOTS1    ; $1A
+	const PAL_SLOTS2    ; $1B
+	const PAL_SLOTS3    ; $1C
+	const PAL_SLOTS4    ; $1D
+	const PAL_BLACK     ; $1E
+	const PAL_GREENBAR  ; $1F
+	const PAL_YELLOWBAR ; $20
+	const PAL_REDBAR    ; $21
+	const PAL_BADGE     ; $22
+	const PAL_CAVE      ; $23
+	const PAL_GAMEFREAK ; $24
+	const PAL_25        ; $25
+	const PAL_26        ; $26
+	const PAL_27        ; $27
+	
+SuperPalettes:
+	; PAL_ROUTE
+	RGB 31, 31, 30
+	RGB 23, 26, 19
+	RGB 23, 27, 31
+	RGB  6,  6,  6
+
+	; PAL_PALLET
+	RGB 31, 31, 30
+	RGB 28, 27, 31
+	RGB 23, 27, 31
+	RGB  6,  6,  6
+
+	; PAL_VIRIDIAN
+	RGB 31, 31, 30
+	RGB 26, 31, 21
+	RGB 23, 27, 31
+	RGB  6,  6,  6
+
+	; PAL_PEWTER
+	RGB 31, 31, 30
+	RGB 23, 23, 22
+	RGB 23, 27, 31
+	RGB  6,  6,  6
+
+	; PAL_CERULEAN
+	RGB 31, 31, 30
+	RGB 22, 23, 31
+	RGB 23, 27, 31
+	RGB  6,  6,  6
+
+	; PAL_LAVENDER
+	RGB 31, 31, 30
+	RGB 27, 23, 29
+	RGB 23, 27, 31
+	RGB  6,  6,  6
+
+	; PAL_VERMILION
+	RGB 31, 31, 30
+	RGB 31, 25, 16
+	RGB 23, 27, 31
+	RGB  6,  6,  6
+
+	; PAL_CELADON
+	RGB 31, 31, 30
+	RGB 22, 31, 22
+	RGB 23, 27, 31
+	RGB  6,  6,  6
+
+	; PAL_FUCHSIA
+	RGB 31, 31, 30
+	RGB 31, 26, 26
+	RGB 23, 27, 31
+	RGB  6,  6,  6
+
+	; PAL_CINNABAR
+	RGB 31, 31, 30
+	RGB 31, 15, 14
+	RGB 23, 27, 31
+	RGB  6,  6,  6
+
+	; PAL_INDIGO
+	RGB 31, 31, 30
+	RGB 17, 17, 25
+	RGB 23, 27, 31
+	RGB  6,  6,  6
+
+	; PAL_SAFFRON
+	RGB 31, 31, 30
+	RGB 31, 31, 19
+	RGB 23, 27, 31
+	RGB  6,  6,  6
+
+	; PAL_TOWNMAP
+	RGB 31, 31, 30
+	RGB 20, 26, 31
+	RGB 17, 23, 10
+	RGB  3,  2,  2
+
+	; PAL_LOGO1
+	RGB 31, 31, 30
+	RGB 30, 30, 17
+	RGB 21,  0,  4
+	RGB 21,  0,  4
+
+	; PAL_LOGO2
+	RGB 31, 31, 30
+	RGB 30, 30, 17
+	RGB 18, 18, 24
+	RGB  7,  7, 16
+
+	; PAL_0F
+	RGB 31, 31, 30
+	RGB 24, 20, 30
+	RGB 11, 20, 30
+	RGB  3,  2,  2
+
+	; PAL_MEWMON
+	RGB 31, 31, 30
+	RGB 31, 30, 22
+	RGB 27, 16, 16
+	RGB  6,  6,  6
+
+	; PAL_BLUEMON
+	RGB 31, 31, 30
+	RGB 21, 22, 31
+	RGB  9, 10, 20
+	RGB  6,  6,  6
+
+	; PAL_REDMON
+	RGB 31, 31, 30
+	RGB 31, 24, 11
+	RGB 26,  9,  6
+	RGB  6,  6,  6
+
+	; PAL_CYANMON
+	RGB 31, 31, 30
+	RGB 26, 28, 31
+	RGB  7, 24, 28
+	RGB  6,  6,  6
+
+	; PAL_PURPLEMON
+	RGB 31, 31, 30
+	RGB 27, 22, 30
+	RGB 22, 15, 23
+	RGB  6,  6,  6
+
+	; PAL_BROWNMON
+	RGB 31, 31, 30
+	RGB 26, 23, 18
+	RGB 18, 14, 10
+	RGB  6,  6,  6
+
+	; PAL_GREENMON
+	RGB 31, 31, 30
+	RGB 24, 28, 18
+	RGB 13, 21, 15
+	RGB  6,  6,  6
+
+	; PAL_PINKMON
+	RGB 31, 31, 30
+	RGB 31, 24, 26
+	RGB 31, 18, 21
+	RGB  6,  6,  6
+
+	; PAL_YELLOWMON
+	RGB 31, 31, 30
+	RGB 31, 31, 19
+	RGB 28, 23,  9
+	RGB  6,  6,  6
+
+	; PAL_GREYMON
+	RGB 31, 31, 30
+	RGB 25, 25, 18
+	RGB 16, 16, 14
+	RGB  6,  6,  6
+
+	; PAL_SLOTS1
+	RGB 31, 31, 30
+	RGB 27, 22, 30
+	RGB 26,  9,  6
+	RGB  6,  6,  6
+
+	; PAL_SLOTS2
+	RGB 31, 31, 30
+	RGB 31, 23, 26
+	RGB 29, 29,  8
+	RGB  6,  6,  6
+
+	; PAL_SLOTS3
+	RGB 31, 31, 30
+	RGB 23, 31, 20
+	RGB 29, 29,  8
+	RGB  6,  6,  6
+
+	; PAL_SLOTS4
+	RGB 31, 31, 30
+	RGB 23, 29, 31
+	RGB 29, 29,  8
+	RGB  6,  6,  6
+
+	; PAL_BLACK
+	RGB 31, 31, 30
+	RGB  6,  6,  6
+	RGB  6,  6,  6
+	RGB  6,  6,  6
+
+	; PAL_GREENBAR
+	RGB 31, 31, 30
+	RGB 31, 31, 19
+	RGB  0, 21,  0
+	RGB  6,  6,  6
+
+	; PAL_YELLOWBAR
+	RGB 31, 31, 30
+	RGB 31, 31, 19
+	RGB 28, 23,  9
+	RGB  6,  6,  6
+
+	; PAL_REDBAR
+	RGB 31, 31, 30
+	RGB 31, 31, 19
+	RGB 26,  9,  6
+	RGB  6,  6,  6
+
+	; PAL_BADGE
+	RGB 31, 31, 30
+	RGB 20, 15, 11
+	RGB 22, 21, 20
+	RGB  6,  6,  6
+
+	; PAL_CAVE
+	RGB 31, 31, 30
+	RGB 20, 15, 11
+	RGB 22, 21, 20
+	RGB  6,  6,  6
+
+	; PAL_GAMEFREAK
+	RGB 31, 31, 30
+	RGB 28, 24, 14
+	RGB 20, 20, 11
+	RGB  6,  6,  6
+
+	; PAL_25
+	RGB 31, 31, 30
+	RGB 31, 30, 22
+	RGB 23, 27, 31
+	RGB  6,  6,  6
+
+	; PAL_26
+	RGB 31, 31, 30
+	RGB 28, 23,  9
+	RGB 18, 14, 10
+	RGB  6,  6,  6
+
+	; PAL_27
+	RGB 31, 31, 30
+	RGB 16, 16, 16
+	RGB 31, 25,  9
+	RGB  6,  6,  6
+
 ; Replaces the functionality of sgb.asm to work with CGB hardware.
 
 CheckCGB:
@@ -529,9 +830,130 @@ _CGB_Diploma:
 	ret
 
 _CGB_MapPals:
-	call LoadMapPals
+	; Get SGB palette
+	call LoadSGBLayout.GetMapPalsIndex
+	call GetPredefPal
+	ld de, wBGPals1
+; Copy 7 BG palettes
+	ld b, 7
+.bg_loop
+	call .LoadHLBGPaletteIntoDE
+	dec b
+	jr nz, .bg_loop
+; Copy PAL_BG_TEXT and 6 OB palettes
+	ld b, 7
+.ob_loop
+	call .LoadHLOBPaletteIntoDE
+	dec b
+	jr nz, .ob_loop
+; Copy PAL_OW_TREE and PAL_OW_ROCK
+	call .LoadHLBGPaletteIntoDE
+	call .LoadHLBGPaletteIntoDE
 	ld a, SCGB_MAPPALS
 	ld [wSGBPredef], a
+	ret
+	
+.LoadHLBGPaletteIntoDE:
+; morn/day: shades 0, 1, 2, 3 -> 0, 1, 2, 3
+; nite: shades 0, 1, 2, 3 -> 1, 2, 2, 3
+	push hl
+	ld a, [wTimeOfDayPal]
+	cp NITE_F
+	jr c, .bg_morn_day
+	inc hl
+	inc hl
+	call .LoadHLColorIntoDE
+	call .LoadHLColorIntoDE
+	dec hl
+	dec hl
+	call .LoadHLColorIntoDE
+	call .LoadHLColorIntoDE
+.bg_done
+	pop hl
+	ret
+	
+.bg_morn_day
+	call LoadHLPaletteIntoDE
+	jr .bg_done
+
+; .LoadHLBGPaletteIntoDE:
+	; ld hl, PalPacket_Empty
+	; ;ld de, wPalPacket
+	; ld bc, $10
+	; call CopyData
+	; ld a, [wCurMapTileset]
+	; cp TILESET_JOHTO
+	; jr z, .PokemonTowerOrAgatha
+	; cp TILESET_PLAYERS_ROOM
+	; jr z, .caveOrBruno
+	; ld a, [wCurMap]
+	; cp TILESET_LAB
+	; jr c, .townOrRoute
+	; cp TILESET_MART
+	; jr c, .normalDungeonOrBuilding
+	; cp TILESET_FACILITY 
+	; jr c, .caveOrBruno
+	; cp TILESET_HOUSE  
+	; jr z, .Lorelei
+	; cp TILESET_CAVE
+	; jr z, .caveOrBruno
+	; cp TILESET_RUINS_OF_ALPH
+	; jr z, .trade_center_colosseum
+	; cp TILESET_RADIO_TOWER
+	; jr z, .trade_center_colosseum
+; .normalDungeonOrBuilding
+	; ld a, [wLastMap] ; town or route that current dungeon or building is located
+; .townOrRoute
+	; cp PlayersHouse1F + 1
+	; jr c, .town
+	; ld a, PAL_ROUTE - 1
+; .town
+	; inc a ; a town's palette ID is its map ID + 1
+	; ;ld hl, wPalPacket + 1
+	; ld [hld], a
+	; ;ld de, BlkPacket_WholeScreen
+	; ld a, PAL_CYANMON
+	; ;ld [wDefaultPaletteCommand], a
+	; ret
+; .PokemonTowerOrAgatha
+	; ld a, PAL_GREYMON - 1
+	; jr .town
+; .caveOrBruno
+	; ld a, PAL_CAVE - 1
+	; jr .town
+; .Lorelei
+	; xor a
+	; jr .town
+; .trade_center_colosseum
+	; ld a, PAL_GREYMON - 1
+	; jr .town
+
+.LoadHLOBPaletteIntoDE:
+; shades 0, 1, 2, 3 -> 0, 0, 1, 3
+	push hl
+	call .LoadHLColorIntoDE
+	dec hl
+	dec hl
+	call .LoadHLColorIntoDE
+	call .LoadHLColorIntoDE
+	inc hl
+	inc hl
+	call .LoadHLColorIntoDE
+	pop hl
+	ret
+
+.LoadHLColorIntoDE:
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wBGPals1)
+	ldh [rSVBK], a
+rept PAL_COLOR_SIZE
+	ld a, [hli]
+	ld [de], a
+	inc de
+endr
+	pop af
+	ldh [rSVBK], a
 	ret
 
 _CGB_PartyMenu:

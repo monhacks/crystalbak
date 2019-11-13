@@ -346,7 +346,7 @@ endr
 	ld bc, PALPACKET_LENGTH
 	call CopyBytes
 	call .GetMapPalsIndex
-	ld hl, wSGBPals + 1
+	ld hl, wSGBPals; + 1
 	ld [hld], a
 	ld de, BlkPacket_9a86
 	ld a, SCGB_MAPPALS
@@ -520,47 +520,78 @@ endr
 	ret
 
 .GetMapPalsIndex:
-	ld a, [wTimeOfDayPal]
-	cp NITE_F
-	jr c, .morn_day
-	ld a, PREDEFPAL_NITE
-	ret
-
-.morn_day
-	ld a, [wEnvironment]
-	cp ROUTE
-	jr z, .route
-	cp CAVE
-	jr z, .cave
-	cp DUNGEON
-	jr z, .cave
-	cp ENVIRONMENT_5
-	jr z, .env5
-	cp GATE
-	jr z, .gate
 	ld a, [wMapGroup]
-	ld e, a
-	ld d, 0
-	ld hl, MapGroupRoofSGBPalInds
-	add hl, de
-	ld a, [hl]
+	cp 24 ; New Bark
+	jr z, .newbark
+	cp 26 ; Cherrygrove
+	jr z, .cherrygrove
+	ld a, PREDEFPAL_CINNABAR ; else
 	ret
 
-.route
-	ld a, PREDEFPAL_00
+.newbark
+	ld a, [wMapNumber]
+	cp MAP_ELMS_LAB
+	jr z, .elmslab
+	cp MAP_ROUTE_29
+	jr z, .route29
+	ld a, PREDEFPAL_VERMILION ; else
+	ret
+	
+.elmslab
+	ld a, PREDEFPAL_FUCHSIA
+	ret
+	
+.route29
+	ld a, PREDEFPAL_SILVER_CAVE
+	ret
+	
+.cherrygrove
+	ld a, PREDEFPAL_VIRIDIAN
 	ret
 
-.cave
-	ld a, PREDEFPAL_DUNGEONS
-	ret
 
-.env5
-	ld a, PREDEFPAL_VERMILION
-	ret
+; .GetMapPalsIndex:
+	; ld a, [wTimeOfDayPal]
+	; cp NITE_F
+	; jr c, .morn_day
+	; ld a, PREDEFPAL_NITE
+	; ret
 
-.gate
-	ld a, PREDEFPAL_PEWTER
-	ret
+; .morn_day
+	; ld a, [wEnvironment]
+	; cp ROUTE
+	; jr z, .route
+	; cp CAVE
+	; jr z, .cave
+	; cp DUNGEON
+	; jr z, .cave
+	; cp ENVIRONMENT_5
+	; jr z, .env5
+	; cp GATE
+	; jr z, .gate
+	; ld a, [wMapGroup]
+	; ld e, a
+	; ld d, 0
+	; ld hl, MapGroupRoofSGBPalInds
+	; add hl, de
+	; ld a, [hl]
+	; ret
+
+; .route
+	; ld a, PREDEFPAL_00
+	; ret
+
+; .cave
+	; ld a, PREDEFPAL_DUNGEONS
+	; ret
+
+; .env5
+	; ld a, PREDEFPAL_VERMILION
+	; ret
+
+; .gate
+	; ld a, PREDEFPAL_PEWTER
+	; ret
 
 INCLUDE "data/maps/sgb_roof_pal_inds.asm"
 
