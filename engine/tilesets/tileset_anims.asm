@@ -36,6 +36,8 @@ _AnimateTileset::
 Tileset0Anim:
 TilesetJohtoModernAnim:
 TilesetKantoAnim:
+TilesetSnowAnim:
+TilesetIslandAnim:
 	dw vTiles2 tile $14, AnimateWaterTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
@@ -136,6 +138,21 @@ TilesetEliteFourRoomAnim:
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  LavaBubbleAnim1
+	dw NULL,  WaitTileAnimation
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
+	
+TilesetHauntAnim: ; Haunt tileset -- Has both Flowers and Water PLUS Lava
+	dw NULL,  LavaBubbleAnim2Ex
+	dw vTiles2 tile $14, AnimateWaterTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  LavaBubbleAnim1Ex
+	dw NULL,  AnimateWaterPalette
+	dw NULL,  WaitTileAnimation
+	dw NULL,  AnimateFlowerTile
+	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
@@ -687,6 +704,44 @@ LavaBubbleAnim2:
 	add hl, de
 	ld sp, hl
 	ld hl, vTiles2 tile $38
+	jp WriteTile
+	
+LavaBubbleAnim1Ex: ; Used by Haunt tileset
+; Splash in the bottom-right corner of the fountain.
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+	ld a, [wTileAnimationTimer]
+	and %110
+	srl a
+	inc a
+	inc a
+	and %011
+	swap a
+	ld e, a
+	ld d, 0
+	ld hl, LavaBubbleFrames
+	add hl, de
+	ld sp, hl
+	ld hl, vTiles2 tile $51
+	jp WriteTile
+
+LavaBubbleAnim2Ex: ; Used by Haunt tileset
+; Splash in the top-left corner of the fountain.
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+	ld a, [wTileAnimationTimer]
+	and %110
+	add a
+	add a
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, LavaBubbleFrames
+	add hl, de
+	ld sp, hl
+	ld hl, vTiles2 tile $52
 	jp WriteTile
 
 LavaBubbleFrames:

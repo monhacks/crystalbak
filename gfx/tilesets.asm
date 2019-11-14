@@ -335,3 +335,32 @@ INCBIN "data/tilesets/omanyte_word_room_metatiles.bin"
 
 TilesetAerodactylWordRoomMeta:
 INCBIN "data/tilesets/aerodactyl_word_room_metatiles.bin"
+
+TilesetSnowGFX:
+INCBIN "gfx/tilesets/snow.2bpp.lz"
+
+TilesetSnowMeta:
+INCBIN "data/tilesets/snow_metatiles.bin"
+
+TilesetSnowColl:
+INCLUDE "data/tilesets/snow_collision.asm"
+
+TilesetIslandGFX:
+INCBIN "gfx/tilesets/island.2bpp.lz"
+
+TilesetIslandMeta:
+INCBIN "data/tilesets/island_metatiles.bin"
+
+TilesetIslandColl:
+INCLUDE "data/tilesets/island_collision.asm"
+
+SECTION "Tileset Data 9", ROMX
+
+TilesetHauntGFX:
+INCBIN "gfx/tilesets/haunt.2bpp.lz"
+
+TilesetHauntMeta:
+INCBIN "data/tilesets/haunt_metatiles.bin"
+
+TilesetHauntColl:
+INCLUDE "data/tilesets/haunt_collision.asm"

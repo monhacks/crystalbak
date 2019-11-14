@@ -561,6 +561,8 @@ endr
 	ld a, [wMapNumber] ; Map check should have priority over Environment or MapGroup
 	cp MAP_ELMS_LAB
 	jr z, .elmslab
+	cp MAP_NEW_BARK_TOWN
+	jr z, .newbarktown
 	ld a, [wEnvironment] ; Otherwise you can't specify a palette for a Route/Cave/House inside city, etc
 	cp ROUTE
 	jr z, .route
@@ -568,7 +570,7 @@ endr
 	jr z, .cave
 	cp DUNGEON
 	jr z, .cave
-	cp ENVIRONMENT_5
+	cp ENVIRONMENT_5 ; Unused Environment?
 	jr z, .env5
 	cp GATE
 	jr z, .gate
@@ -583,6 +585,10 @@ endr
 .elmslab
 	ld a, PREDEFPAL_LAKE_OF_RAGE
 	ret
+	
+.newbarktown
+	ld a, PREDEFPAL_LAVENDER
+	ret
 
 .route
 	ld a, PREDEFPAL_00
@@ -596,7 +602,7 @@ endr
 	ld a, PREDEFPAL_VERMILION
 	ret
 
- .gate
+.gate
 	ld a, PREDEFPAL_PEWTER
 	ret
 

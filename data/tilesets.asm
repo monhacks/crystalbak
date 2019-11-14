@@ -49,3 +49,6 @@ Tilesets::
 	tileset TilesetKabutoWordRoom
 	tileset TilesetOmanyteWordRoom
 	tileset TilesetAerodactylWordRoom
+	tileset TilesetSnow
+	tileset TilesetIsland
+	tileset TilesetHaunt
