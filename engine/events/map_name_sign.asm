@@ -126,7 +126,7 @@ PlaceMapNameSign::
 
 LoadMapNameSignGFX:
 	ld de, MapEntryFrameGFX
-	ld hl, vTiles0 tile MAP_NAME_SIGN_START
+	ld hl, vTiles2 tile MAP_NAME_SIGN_START
 	lb bc, BANK(MapEntryFrameGFX), 14
 	call Get2bpp
 	ret
