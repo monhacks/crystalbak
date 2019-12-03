@@ -39,6 +39,10 @@ FindNest:
 	decoord 0, 0
 	ld hl, JohtoGrassWildMons
 	call .FindGrass
+	ld hl, JohtoSwampWildMons
+	call .FindSwamp
+	ld hl, JohtoDarkGrassWildMons
+	call .FindDarkGrass
 	ld hl, JohtoWaterWildMons
 	call .FindWater
 	call .RoamMon1
@@ -49,6 +53,10 @@ FindNest:
 	decoord 0, 0
 	ld hl, KantoGrassWildMons
 	call .FindGrass
+	ld hl, KantoSwampWildMons
+	call .FindSwamp
+	ld hl, KantoDarkGrassWildMons
+	call .FindDarkGrass
 	ld hl, KantoWaterWildMons
 	jp .FindWater
 
@@ -75,6 +83,52 @@ FindNest:
 	ld bc, GRASS_WILDDATA_LENGTH
 	add hl, bc
 	jr .FindGrass
+
+.FindSwamp:
+	ld a, [hl]
+	cp -1
+	ret z
+	push hl
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	inc hl
+	ld a, NUM_GRASSMON
+	call .SearchMapForMon
+	jr nc, .next_swamp
+	ld [de], a
+	inc de
+
+.next_swamp
+	pop hl
+	ld bc, SWAMP_WILDDATA_LENGTH
+	add hl, bc
+	jr .FindSwamp
+
+.FindDarkGrass:
+	ld a, [hl]
+	cp -1
+	ret z
+	push hl
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	inc hl
+	inc hl
+	inc hl
+	ld a, NUM_DARKGRASSMON * 3
+	call .SearchMapForMon
+	jr nc, .next_darkgrass
+	ld [de], a
+	inc de
+
+.next_darkgrass
+	pop hl
+	ld bc, GRASS_WILDDATA_LENGTH
+	add hl, bc
+	jr .FindDarkGrass
 
 .FindWater:
 	ld a, [hl]
@@ -261,6 +315,12 @@ ChooseWildEncounter:
 	call CheckOnWater
 	ld de, WaterMonProbTable
 	jr z, .watermon
+	call CheckSwampTile
+	ld de, GrassMonProbTable
+	jr z, .watermon
+	call CheckDarkGrassTile
+	ld de, DarkGrassMonProbTable
+	jr z, .watermon
 	inc hl
 	inc hl
 	ld a, [wTimeOfDay]
@@ -380,6 +440,10 @@ endr
 LoadWildMonDataPointer:
 	call CheckOnWater
 	jr z, _WaterWildmonLookup
+	call CheckSwampTile
+	jr z, _SwampWildmonLookup
+	call CheckDarkGrassTile
+	jr z, _DarkGrassWildmonLookup
 
 _GrassWildmonLookup:
 	ld hl, SwarmGrassWildMons
@@ -401,6 +465,20 @@ _WaterWildmonLookup:
 	ld de, KantoWaterWildMons
 	call _JohtoWildmonCheck
 	ld bc, WATER_WILDDATA_LENGTH
+	jr _NormalWildmonOK
+	
+_SwampWildmonLookup:
+	ld hl, JohtoSwampWildMons
+	ld de, KantoSwampWildMons
+	call _JohtoWildmonCheck
+	ld bc, SWAMP_WILDDATA_LENGTH
+	jr _NormalWildmonOK
+	
+_DarkGrassWildmonLookup: ; No swarm in those tiles
+	ld hl, JohtoDarkGrassWildMons
+	ld de, KantoDarkGrassWildMons
+	call _JohtoWildmonCheck
+	ld bc, DARKGRASS_WILDDATA_LENGTH
 	jr _NormalWildmonOK
 
 _JohtoWildmonCheck:
@@ -963,4 +1041,8 @@ INCLUDE "data/wild/johto_water.asm"
 INCLUDE "data/wild/kanto_grass.asm"
 INCLUDE "data/wild/kanto_water.asm"
 INCLUDE "data/wild/swarm_grass.asm"
+INCLUDE "data/wild/johto_swamp.asm"
+INCLUDE "data/wild/kanto_swamp.asm"
+INCLUDE "data/wild/johto_darkgrass.asm"
+INCLUDE "data/wild/kanto_darkgrass.asm"
 INCLUDE "data/wild/swarm_water.asm"
