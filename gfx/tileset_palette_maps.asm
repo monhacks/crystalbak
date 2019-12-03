@@ -118,6 +118,9 @@ INCLUDE "gfx/tilesets/island_palette_map.asm"
 TilesetHauntPalMap:
 INCLUDE "gfx/tilesets/haunt_palette_map.asm"
 
+TilesetGenericPalMap:
+INCLUDE "gfx/tilesets/generic_palette_map.asm"
+
 ; unused
 rept 26
 	db $06

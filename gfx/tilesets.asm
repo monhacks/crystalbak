@@ -364,3 +364,12 @@ INCBIN "data/tilesets/haunt_metatiles.bin"
 
 TilesetHauntColl:
 INCLUDE "data/tilesets/haunt_collision.asm"
+
+TilesetGenericGFX:
+INCBIN "gfx/tilesets/generic.2bpp.lz"
+
+TilesetGenericMeta:
+INCBIN "data/tilesets/generic_metatiles.bin"
+
+TilesetGenericColl:
+INCLUDE "data/tilesets/generic_collision.asm"

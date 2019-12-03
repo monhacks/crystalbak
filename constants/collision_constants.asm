@@ -7,8 +7,8 @@ TALK                 EQU $10
 ; collision data types (see data/tilesets/*_collision.asm)
 ; TileCollisionTable indexes (see data/collision_permissions.asm)
 COLL_FLOOR             EQU $00
-COLL_01                EQU $01 ; garbage
-COLL_03                EQU $03 ; garbage
+COLL_SWAMP             EQU $01
+COLL_DARKGRASS         EQU $03
 COLL_04                EQU $04 ; garbage
 COLL_WALL              EQU $07
 COLL_CUT_08            EQU $08 ; unused

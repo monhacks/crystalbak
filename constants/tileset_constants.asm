@@ -39,6 +39,7 @@
 	const TILESET_SNOW 				   ; 25
 	const TILESET_ISLAND			   ; 26
 	const TILESET_HAUNT 			   ; 27
+	const TILESET_GENERIC 			   ; 28
 
 ; bg palette values (see gfx/tilesets/*_palette_map.asm)
 ; TilesetBGPalette indexes (see gfx/tilesets/bg_tiles.pal)

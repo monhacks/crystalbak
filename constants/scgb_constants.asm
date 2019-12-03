@@ -116,7 +116,34 @@ SCGB_RAM EQU -1
 	const PREDEFPAL_GS_TITLE_SCREEN_3
 	const PREDEFPAL_UNOWN_PUZZLE
 	const PREDEFPAL_GAMEFREAK_LOGO_OB
-	const PREDEFPAL_GAMEFREAK_LOGO_BG
+	const PREDEFPAL_GAMEFREAK_LOGO_BG ; Spaceworld Palettes
+	const PREDEFPAL_01 ; Grey
+	const PREDEFPAL_02 ; Grey-Blue
+	const PREDEFPAL_03 ; Bright Green
+	const PREDEFPAL_04 ; Dark Grey
+	const PREDEFPAL_05 ; Dark Blue
+	const PREDEFPAL_06 ; Pink
+	const PREDEFPAL_07 ; Yellow
+	const PREDEFPAL_08 ; Teal
+	const PREDEFPAL_09 ; Pink
+	const PREDEFPAL_10 ; Red
+	const PREDEFPAL_11 ; Blue-Purple
+	const PREDEFPAL_12 ; Yellow
+	const PREDEFPAL_13 ; ; Yellow Palettes
+	const PREDEFPAL_14 ; Route
+	const PREDEFPAL_15 ; Pallet
+	const PREDEFPAL_16 ; Viridian
+	const PREDEFPAL_17 ; Pewter
+	const PREDEFPAL_18 ; Cerulean
+	const PREDEFPAL_19 ; Lavender
+	const PREDEFPAL_20 ; Vermillion
+	const PREDEFPAL_21 ; Celadon
+	const PREDEFPAL_22 ; Fuchsia
+	const PREDEFPAL_23 ; Cinnabar
+	const PREDEFPAL_24 ; Indigo
+	const PREDEFPAL_25 ; Saffron
+	const PREDEFPAL_26 ; Cave
+	
 
 ; SGB system command codes
 ; http://gbdev.gg8.se/wiki/articles/SGB_Functions#SGB_System_Command_Table

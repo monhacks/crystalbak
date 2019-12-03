@@ -21,6 +21,9 @@ PlayersHouse1F_MapScripts:
 MeetMomLeftScript:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 
+MeetMomRightScriptEx:
+	end
+
 MeetMomRightScript:
 	playmusic MUSIC_MOM
 	showemote EMOTE_SHOCK, PLAYERSHOUSE1F_MOM1, 15
@@ -393,7 +396,7 @@ PlayersHouse1F_MapEvents:
 
 	db 2 ; coord events
 	coord_event  8,  4, SCENE_DEFAULT, MeetMomLeftScript
-	coord_event  9,  4, SCENE_DEFAULT, MeetMomRightScript
+	coord_event  9,  4, SCENE_DEFAULT, MeetMomRightScriptEx
 
 	db 4 ; bg events
 	bg_event  0,  1, BGEVENT_READ, StoveScript

@@ -80,11 +80,9 @@ GetPlayerStandingTile::
 CheckOnWater::
 	ld a, [wPlayerStandingTile]
 	call GetTileCollision
-	sub WATERTILE
-	ret z
-	and a
+	cp WATERTILE
 	ret
-
+	
 GetTileCollision::
 ; Get the collision type of tile a.
 
@@ -112,6 +110,9 @@ GetTileCollision::
 	ret
 
 CheckGrassTile::
+	ld a, [wPlayerStandingTile]
+	;cp COLL_01
+	;jr z, .grass
 	ld d, a
 	and $f0
 	cp HI_NYBBLE_TALL_GRASS
@@ -134,8 +135,22 @@ CheckGrassTile::
 	ret z
 	scf
 	ret
+	
+CheckSwampTile::
+	ld a, [wPlayerStandingTile]
+	cp COLL_SWAMP
+	ret
+	
+CheckDarkGrassTile::
+	ld a, [wPlayerStandingTile]
+	cp COLL_DARKGRASS
+	ret
 
 CheckSuperTallGrassTile::
+	cp COLL_SWAMP
+	ret z
+	cp COLL_DARKGRASS
+	ret z
 	cp COLL_LONG_GRASS
 	ret z
 	cp COLL_LONG_GRASS_1C

@@ -587,7 +587,7 @@ endr
 	ret
 	
 .newbarktown
-	ld a, PREDEFPAL_LAVENDER
+	ld a, PREDEFPAL_06
 	ret
 
 .route

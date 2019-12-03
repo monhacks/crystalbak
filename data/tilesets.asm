@@ -52,3 +52,6 @@ Tilesets::
 	tileset TilesetSnow
 	tileset TilesetIsland
 	tileset TilesetHaunt
+	tileset TilesetSnow
+	tileset TilesetIsland
+	tileset TilesetGeneric
